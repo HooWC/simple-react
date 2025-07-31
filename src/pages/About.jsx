@@ -1,16 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 function About() {
   const [visitCount, setVisitCount] = useState(0);
+  const effectRan = useRef(false);
 
   useEffect(() => {
-    // 示范useEffect的使用
+    // 在开发模式下，跳过第二次执行
+    if (effectRan.current === true) {
+      return;
+    }
+
     const count = parseInt(localStorage.getItem('visitCount') || '0');
     setVisitCount(count + 1);
     localStorage.setItem('visitCount', (count + 1).toString());
 
+    // 标记effect已经运行
+    effectRan.current = true;
+
     return () => {
-      // 清理函数示例
       console.log('About页面卸载');
     };
   }, []);
