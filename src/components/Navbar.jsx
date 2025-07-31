@@ -4,15 +4,18 @@ function Navbar() {
   return (
     <nav style={{
       padding: '1rem',
-      backgroundColor: '#f0f0f0',
-      marginBottom: '1rem'
+      backgroundColor: 'white',
+      marginBottom: '1rem',
+      borderRadius: '8px',
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
     }}>
       <ul style={{
         listStyle: 'none',
         display: 'flex',
-        gap: '1rem',
+        gap: '2rem',
         margin: 0,
-        padding: 0
+        padding: 0,
+        justifyContent: 'center'
       }}>
         <li>
           <NavLink 
